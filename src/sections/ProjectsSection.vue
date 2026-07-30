@@ -3,7 +3,6 @@ import { computed, ref } from 'vue'
 import SectionHeading from '@/components/SectionHeading.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import { usePortfolioData } from '@/composables/usePortfolioData'
-import {projects} from "@/data/projects.ts";
 
 const { data } = usePortfolioData()
 
