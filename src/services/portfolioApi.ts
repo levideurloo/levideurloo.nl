@@ -19,14 +19,6 @@ import type {
 import { fallbackPortfolioData, fallbackProfile } from '@/data/fallback'
 import { resolveAssetUrl } from '@/utils/assets'
 
-// ---------------------------------------------------------------------------
-// Endpoint-configuratie. Nu: het statische /index.json op levideurloo.nl.
-// Later: een Laravel REST API-endpoint. Dat wordt dan een kwestie van deze
-// twee omgevingsvariabelen aanpassen (zie .env.example) — zolang het
-// endpoint dezelfde pages/sections/items-vorm teruggeeft, hoeft er verder
-// niets te veranderen; wijzigt de vorm wél, pas dan alleen de normalize-
-// functies hieronder aan.
-// ---------------------------------------------------------------------------
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
 const API_PATH = import.meta.env.VITE_API_PATH ?? '/index.json'
 const REQUEST_TIMEOUT_MS = 8000
@@ -51,11 +43,6 @@ async function fetchWithTimeout(url: string): Promise<Response> {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Lookup-helpers — zoeken op titel (los van hoofdletters, met de Engelse
-// variant als tweede kans) en op icoon als laatste redmiddel, zodat kleine
-// tekstwijzigingen in het CMS de app niet meteen breken.
-// ---------------------------------------------------------------------------
 function findPage(pages: RawCmsPage[], titleHints: string[], iconHint?: string): RawCmsPage | undefined {
   const byTitle = pages.find((p) =>
     titleHints.some((hint) => (p.title ?? '').toLowerCase().includes(hint.toLowerCase())),
@@ -83,11 +70,6 @@ function toNumber(value: string | number | undefined, fallback = 0): number {
   return Number.isFinite(n) ? n : fallback
 }
 
-// ---------------------------------------------------------------------------
-// Per contentblok: normalize(raw) -> nette items, met fallback zodra een
-// sectie ontbreekt of leeg is.
-// ---------------------------------------------------------------------------
-
 function normalizeProfile(aboutPage: RawCmsPage | undefined): Profile {
   const textSection = findSection(aboutPage, 'text')
   const bioHtml = textSection?.items?.find(isRawCmsItem)?.caption
@@ -100,8 +82,6 @@ function normalizeProfile(aboutPage: RawCmsPage | undefined): Profile {
       .filter((fact) => fact.label && fact.value) ?? []
 
   return {
-    // Naam/titel/tagline staan niet in deze databron (dat is puur het
-    // statische hero-visitekaartje) — die blijven op de vaste waarden staan.
     name: fallbackProfile.name,
     title: fallbackProfile.title,
     tagline: fallbackProfile.tagline,
@@ -126,7 +106,7 @@ function normalizeServices(aboutPage: RawCmsPage | undefined): ServiceItem[] {
 function normalizeTestimonials(aboutPage: RawCmsPage | undefined): Testimonial[] {
   const section = findSection(aboutPage, 'testimonial')
   const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return fallbackPortfolioData.testimonials
+  if (items.length === 0) return []
 
   return items.map((item, index) => ({
     id: `testimonial-${index}`,
@@ -140,7 +120,7 @@ function normalizeTestimonials(aboutPage: RawCmsPage | undefined): Testimonial[]
 function normalizePricing(aboutPage: RawCmsPage | undefined): PricingTier[] {
   const section = findSection(aboutPage, 'pricing')
   const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return fallbackPortfolioData.pricing
+  if (items.length === 0) return [];
 
   return items.map((item, index) => ({
     id: `pricing-${index}`,
@@ -156,7 +136,7 @@ function normalizePricing(aboutPage: RawCmsPage | undefined): PricingTier[] {
 function normalizeFunFacts(aboutPage: RawCmsPage | undefined): FunFact[] {
   const section = findSection(aboutPage, 'counter')
   const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return fallbackPortfolioData.funFacts
+  if (items.length === 0) return [];
 
   return items.map((item, index) => ({
     id: `funfact-${index}`,
@@ -169,7 +149,7 @@ function normalizeFunFacts(aboutPage: RawCmsPage | undefined): FunFact[] {
 function normalizeProjects(portfolioPage: RawCmsPage | undefined): Project[] {
   const section = findSection(portfolioPage, 'portfolio')
   const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return fallbackPortfolioData.projects
+  if (items.length === 0) return []
 
   return items.map((item, index) => ({
     id: String(item.id ?? index),

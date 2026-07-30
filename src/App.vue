@@ -25,7 +25,7 @@ const { data } = usePortfolioData()
 </script>
 
 <template>
-  <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+  <a href="#main-content" class="skip-link">Naar boven</a>
   <LoadingBar />
 
   <AuroraBackground />

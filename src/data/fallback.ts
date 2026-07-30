@@ -2,7 +2,6 @@ import type {
   Profile,
   ServiceItem,
   Testimonial,
-  PricingTier,
   FunFact,
   Project,
   ExperienceEntry,
@@ -13,13 +12,6 @@ import type {
 } from '@/types'
 import { resolveAssetUrl } from '@/utils/assets'
 
-// ---------------------------------------------------------------------------
-// Fallback-content: getoond zolang het endpoint nog niet is opgehaald, en
-// als het endpoint (tijdelijk) niet bereikbaar is. Rechtstreeks overgenomen
-// uit de huidige /index.json, dus dit is geen placeholder-tekst maar een
-// werkende momentopname van de echte content.
-// ---------------------------------------------------------------------------
-
 export const fallbackProfile: Profile = {
   name: 'Levi Deurloo',
   title: 'Web app developer',
@@ -29,9 +21,8 @@ export const fallbackProfile: Profile = {
   facts: [
     { label: 'Leeftijd', value: '27 jaar' },
     { label: 'Geboorteland', value: 'Nederland' },
-    { label: 'Woonplaats', value: 'Middelburg' },
+    { label: 'Woonplaats', value: 'Zeeland, Nederland' },
     { label: 'E-mailadres', value: 'contact@levideurloo.nl' },
-    { label: 'Telefoon', value: 'Dien een contactverzoek in' },
   ],
 }
 
@@ -82,27 +73,6 @@ export const fallbackTestimonials: Testimonial[] = [
     quote:
       'Erg vlot gedaan, onze klanten konden gelijk hun afspraken boeken. Eventuele problemen werden direct opgelost en het systeem was goed te begrijpen voor klanten van jong en oud!',
     image: resolveAssetUrl('img/testimonials/rd.webp'),
-  },
-]
-
-export const fallbackPricing: PricingTier[] = [
-  {
-    id: 'losse-inzet',
-    title: 'Losse inzet',
-    subtitle: 'op aanvraag',
-    caption: 'per uur',
-    cta: 'Inhuren!',
-    link: '/contact',
-    primary: false,
-  },
-  {
-    id: 'vaste-prijsafspraak',
-    title: 'Vaste prijsafspraak',
-    subtitle: 'op aanvraag',
-    caption: 'eenmalig',
-    cta: 'Offerte aanvragen',
-    link: '/contact',
-    primary: true,
   },
 ]
 
@@ -217,22 +187,18 @@ export const fallbackKnowledge: string[] = [
 
 export const fallbackCertificates: Certificate[] = [
   { id: 'hz', title: 'HZ University of applied..', course: 'HBO-ICT', date: '2018 - 2021', logo: resolveAssetUrl('HZ.webp') },
-  { id: 'scalda', title: 'Scalda', course: 'Applicatieontwikkelaar', date: '2015 - 2017', logo: resolveAssetUrl('scalda.webp') },
+  { id: 'scalda', title: 'Scalda', course: 'Applicatie ontwikkelaar', date: '2015 - 2017', logo: resolveAssetUrl('scalda.webp') },
 ]
 
 export const fallbackContactInfo: ContactInfoItem[] = [
-  { id: 'location', text: 'Middelburg', icon: 'map-marker' },
-  { id: 'phone', text: '(+31)6 20 21 69 17', icon: 'phone' },
+  { id: 'location', text: 'Zeeland, NL', icon: 'map-marker' },
   { id: 'email', text: 'contact@levideurloo.nl', icon: 'envelope' },
-  { id: 'availability', text: 'Beschikbaar als Freelancer!', icon: 'checkmark-circle' },
 ]
 
 export const fallbackPortfolioData: PortfolioData = {
   profile: fallbackProfile,
   services: fallbackServices,
   testimonials: fallbackTestimonials,
-  pricing: fallbackPricing,
-  funFacts: fallbackFunFacts,
   projects: fallbackProjects,
   experience: fallbackExperience,
   skills: fallbackSkills,

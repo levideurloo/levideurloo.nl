@@ -7,10 +7,6 @@ import FunFactsStrip from '@/components/FunFactsStrip.vue'
 import { usePortfolioData } from '@/composables/usePortfolioData'
 
 const { data } = usePortfolioData()
-
-// bioHtml komt uit de eigen CMS-databron (straks de Laravel-API die jijzelf
-// beheert), niet uit vrije gebruikersinvoer — v-html is hier dus veilig.
-// Zodra dit endpoint ooit content van derden doorgeeft, sanitize dan eerst.
 </script>
 
 <template>

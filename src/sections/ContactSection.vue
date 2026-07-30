@@ -12,12 +12,10 @@ const message = ref('')
 const status = ref<'idle' | 'sent'>('idle')
 const error = ref('')
 
-// TODO: koppel dit formulier aan een echt endpoint (bijv. Laravel API,
-// Formspree, of een e-mailservice). Nu wordt alleen lokaal een bevestiging
-// getoond zodat de UI compleet en testbaar is.
+// TODO: connect form with endpoint
 function handleSubmit() {
   if (!name.value || !email.value || !message.value) {
-    error.value = 'Vul alle velden in voordat je het bericht verstuurt.'
+    error.value = 'Vul alle velden in'
     return
   }
   error.value = ''
@@ -91,7 +89,8 @@ function handleSubmit() {
         <div v-else role="status" aria-live="polite" class="py-6 text-center">
           <p class="text-lg font-semibold" style="color: var(--text-primary)">Bedankt, {{ name }}!</p>
           <p class="mt-2 text-sm" style="color: var(--text-secondary)">
-            Je bericht is genoteerd. Ik neem zo snel mogelijk contact met je op via
+            Het formulier is helaas niet verstuurd. De functie moet nog worden ge-implementeerd.
+            Stuur een email naar contact@levideurloo.nl
             {{ email }}.
           </p>
         </div>
