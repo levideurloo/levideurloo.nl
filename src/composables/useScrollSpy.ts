@@ -1,9 +1,5 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
-/**
- * Houdt bij welke sectie momenteel in beeld is, zodat de navigatierail
- * de actieve pagina kan markeren tijdens het scrollen (single-page layout).
- */
 export function useScrollSpy(sectionIds: string[]) {
   const activeId = ref<string>(sectionIds[0] ?? '')
   let observer: IntersectionObserver | null = null

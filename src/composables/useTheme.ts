@@ -2,9 +2,6 @@ import { ref, watch, onMounted } from 'vue'
 import type { Theme } from '@/types'
 
 const STORAGE_KEY = 'ld-theme'
-
-// Module-level state zodat elk component dezelfde bron van waarheid deelt,
-// zonder dat we een aparte store-library nodig hebben.
 const theme = ref<Theme>('dark')
 
 function applyTheme(value: Theme) {
@@ -19,7 +16,6 @@ export function useTheme() {
     theme.value = stored ?? (prefersDark ? 'dark' : 'light')
     applyTheme(theme.value)
 
-    // Volg systeemwijzigingen alleen als de gebruiker zelf nog geen keuze maakte
     const media = window.matchMedia('(prefers-color-scheme: dark)')
     const onChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem(STORAGE_KEY)) {

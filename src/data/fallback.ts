@@ -2,7 +2,6 @@ import type {
   Profile,
   ServiceItem,
   Testimonial,
-  FunFact,
   Project,
   ExperienceEntry,
   SkillLevel,
@@ -75,13 +74,6 @@ export const fallbackTestimonials: Testimonial[] = [
     image: resolveAssetUrl('img/testimonials/rd.webp'),
   },
 ]
-
-export const fallbackFunFacts: FunFact[] = [
-  { id: 'tevreden-klanten', label: 'Tevreden klanten', value: '24', icon: 'heart' },
-  { id: 'uren-ervaring', label: 'Uren ervaring', value: '♾', icon: 'alarm' },
-  { id: 'it-diplomas', label: "IT Diploma's", value: '2', icon: 'star' },
-]
-
 export const fallbackProjects: Project[] = [
   {
     id: '1',
