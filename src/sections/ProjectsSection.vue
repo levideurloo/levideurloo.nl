@@ -25,16 +25,11 @@ const filters = computed(() => {
   return Array.from(set)
 })
 
-const filteredProjects = computed(() => {
+const filteredProjects = computed(() =>
     activeFilter.value === 'all'
         ? data.value.projects
-        : data.value.projects.filter((project) => {
-          // if(project.categories !== undefined) {
-            project.categories?.includes(activeFilter.value)
-          // }
-        })
-  return projects;
-})
+        : data.value.projects.filter((project) => project.categories?.includes(activeFilter.value))
+)
 </script>
 
 <template>
