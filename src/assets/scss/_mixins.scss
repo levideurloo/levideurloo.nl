@@ -1,0 +1,33 @@
+@mixin glass($opacity: 0.55) {
+  background: color-mix(in srgb, var(--surface) #{$opacity * 100%}, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+@mixin focus-ring {
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: var(--focus-ring);
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin respond($bp) {
+  @if $bp == sm {
+    @media (min-width: 640px) { @content; }
+  } @else if $bp == md {
+    @media (min-width: 768px) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: 1024px) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: 1280px) { @content; }
+  }
+}

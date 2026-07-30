@@ -1,0 +1,65 @@
+// ---------------------------------------------------------------------------
+// Design tokens — afgeleid van de aurora-identiteit van de oude site
+// (teal → violet → magenta) maar rustiger en professioneler ingezet.
+// ---------------------------------------------------------------------------
+
+// Aurora accentkleuren
+$aurora-teal: #17b4a6;
+$aurora-violet: #7c5cfc;
+$aurora-pink: #d81b6b;
+$aurora-pink-light: #ff4d94;
+
+// Dark theme
+$ink-950: #08090d;
+$ink-900: #0e1015;
+$ink-800: #15171f;
+$ink-700: #1d2029;
+$ink-600: #2a2e3a;
+
+// Light theme
+$cloud-50: #fbfafe;
+$cloud-100: #f4f2fb;
+$cloud-200: #e9e6f5;
+$cloud-300: #d8d3ed;
+
+// Type scale
+$font-display: '"Space Grotesk"', sans-serif;
+$font-body: '"Inter"', sans-serif;
+$font-mono: '"JetBrains Mono"', monospace;
+
+// Motion
+$ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+$duration-fast: 180ms;
+$duration-base: 320ms;
+$duration-slow: 640ms;
+
+// Spacing scale (8px base grid — every margin/padding in the app should
+// trace back to one of these, so vertical/horizontal rhythm stays even)
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-6: 1.5rem; // 24px
+$space-8: 2rem; // 32px
+$space-12: 3rem; // 48px
+$space-16: 4rem; // 64px
+$space-24: 6rem; // 96px
+
+// Section rhythm — one token, used everywhere a section needs vertical
+// breathing room, so no page ever drifts out of alignment with itself
+$section-py: clamp(4rem, 8vw, 6rem);
+
+// Radius scale — three steps only, so corners never look arbitrary
+$radius-sm: 0.5rem; // inputs, chips
+$radius-md: 1rem; // buttons, small cards
+$radius-lg: 1.25rem; // panels, large cards
+
+// Elevation — dark and light need different shadow strategies: dark relies
+// on glow/border, light relies on a soft, low-opacity drop shadow
+$shadow-light-sm: 0 1px 2px rgba(20, 15, 40, 0.04), 0 1px 1px rgba(20, 15, 40, 0.03);
+$shadow-light-md: 0 8px 24px -8px rgba(20, 15, 40, 0.12), 0 2px 6px rgba(20, 15, 40, 0.05);
+$shadow-dark-md: 0 8px 28px -8px rgba(0, 0, 0, 0.45);
+
+// Layout
+$nav-rail-width: 4.75rem;
+$content-max: 72rem;

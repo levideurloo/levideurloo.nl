@@ -1,0 +1,32 @@
+name: 🚀  Deploy website
+on:
+  push:
+    branches: [ master ]
+
+env:
+  VITE_APP_BASE_URL: ""
+  VITE_API_PATH: '/index.json'
+  VITE_ASSET_BASE_URL: "VITE_ASSET_BASE_URL"
+
+jobs:
+  deploy:
+    name: 🚀 SSH Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+      - run: npm install
+      - run: npm run build
+      - run: mkdir v2
+      - run: cp -rf dist/* v2/
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          password: ${{secrets.SSH_PASSWORD}}
+          port: 7685
+          source: 'v2/'
+          overwrite: 'true'
+          target: '/home/'${{secrets.SSH_USER}}'/domains/levideurloo.nl/public_html"
