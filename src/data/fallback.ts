@@ -30,7 +30,7 @@ export const fallbackProfile: Profile = {
     { label: 'Leeftijd', value: '27 jaar' },
     { label: 'Geboorteland', value: 'Nederland' },
     { label: 'Woonplaats', value: 'Middelburg' },
-    { label: 'E-mailadres', value: 'sales@levideurloo.nl' },
+    { label: 'E-mailadres', value: 'contact@levideurloo.nl' },
     { label: 'Telefoon', value: 'Dien een contactverzoek in' },
   ],
 }
@@ -223,7 +223,7 @@ export const fallbackCertificates: Certificate[] = [
 export const fallbackContactInfo: ContactInfoItem[] = [
   { id: 'location', text: 'Middelburg', icon: 'map-marker' },
   { id: 'phone', text: '(+31)6 20 21 69 17', icon: 'phone' },
-  { id: 'email', text: 'sales@levideurloo.nl', icon: 'envelope' },
+  { id: 'email', text: 'contact@levideurloo.nl', icon: 'envelope' },
   { id: 'availability', text: 'Beschikbaar als Freelancer!', icon: 'checkmark-circle' },
 ]
 

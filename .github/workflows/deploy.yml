@@ -33,8 +33,8 @@ jobs:
 
       - name: Prepare upload
         run: |
-          mkdir -p v2
-          cp -R dist/* v2/
+          mkdir -p public_html
+          cp -R dist/* public_html/
 
       - name: Upload files
         uses: appleboy/scp-action@v0.1.7
@@ -43,6 +43,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: 7685
-          source: "v2/*"
-          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.nl/public_html"
+          source: "public_html/*"
+          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.nl"
           overwrite: true

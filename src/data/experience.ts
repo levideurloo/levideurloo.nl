@@ -27,5 +27,5 @@ export const aboutFacts: AboutFact[] = [
   { label: 'Leeftijd', value: '27 jaar' },
   { label: 'Geboorteland', value: 'Nederland' },
   { label: 'Woonplaats', value: 'Middelburg' },
-  { label: 'E-mailadres', value: 'sales@levideurloo.nl' },
+  { label: 'E-mailadres', value: 'contact@levideurloo.nl' },
 ]
