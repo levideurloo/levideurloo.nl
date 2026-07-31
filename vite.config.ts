@@ -78,13 +78,6 @@ export default defineConfig(({mode}) => {
 
   return {
     plugins,
-    build:{
-      rolldownOptions:{
-        external: [
-            'virtual:pwa-register'
-        ]
-      }
-    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
