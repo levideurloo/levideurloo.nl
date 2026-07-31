@@ -16,21 +16,23 @@ const filterLabels: Record<string, string> = {
 
 const filters = computed(() => {
   const set = new Set<string>()
-  data.value.projects.forEach((project) => {
-    if(project.categories !== undefined) {
-      project.categories.forEach((category) => set.add(category))
-    }
-  })
+  if(data.value?.projects) {
+    data.value?.projects.forEach((project) => {
+      if(project.categories !== undefined) {
+        project.categories.forEach((category) => set.add(category))
+      }
+    })
+  }
   return Array.from(set)
 })
 
 const filteredProjects = computed(() =>
-    activeFilter.value === 'all'
-        ? data.value.projects
-        : data.value.projects.filter((project) => project.categories?.includes(activeFilter.value))
+   ( activeFilter && data.value?.projects) ?
+     activeFilter.value === 'all' ? data.value.projects : data.value.projects.filter((project) => project.categories?.includes(activeFilter.value))
+      :
+      []
 )
 </script>
-
 <template>
   <section id="portfolio" class="section-py px-6 sm:px-10 lg:px-24">
     <div class="mx-auto max-w-6xl">

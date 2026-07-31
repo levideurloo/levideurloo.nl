@@ -2,7 +2,6 @@
 import SectionHeading from '@/components/SectionHeading.vue'
 import ServicesGrid from '@/components/ServicesGrid.vue'
 import TestimonialsGrid from '@/components/TestimonialsGrid.vue'
-import PricingGrid from '@/components/PricingGrid.vue'
 import FunFactsStrip from '@/components/FunFactsStrip.vue'
 import { usePortfolioData } from '@/composables/usePortfolioData'
 
@@ -21,7 +20,7 @@ const { data } = usePortfolioData()
           v-html="data.profile.bioHtml"
         />
 
-        <div>
+        <div v-if="data?.funFacts">
           <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div
               v-for="fact in data.profile.facts"
@@ -45,14 +44,9 @@ const { data } = usePortfolioData()
         <ServicesGrid :services="data.services" />
       </div>
 
-      <div class="mt-16">
+      <div class="mt-16" v-if="data?.testimonials">
         <h3 class="mb-6 text-xl font-semibold" style="color: var(--text-primary)">Wat klanten zeggen</h3>
         <TestimonialsGrid :testimonials="data.testimonials" />
-      </div>
-
-      <div class="mt-16">
-        <h3 class="mb-6 text-xl font-semibold" style="color: var(--text-primary)">Tarieven & prijzen</h3>
-        <PricingGrid :tiers="data.pricing" />
       </div>
     </div>
   </section>

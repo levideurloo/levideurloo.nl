@@ -9,7 +9,7 @@ const { theme, toggleTheme } = useTheme()
     type="button"
     class="group relative flex h-11 w-11 items-center justify-center rounded-full border transition-colors"
     style="border-color: var(--border); background: var(--surface-raised)"
-    :aria-label="theme === 'dark' ? 'Schakel naar lichte modus' : 'Schakel naar donkere modus'"
+    :aria-label="theme === 'dark' ? 'Light mode' : 'Dark mode'"
     @click="toggleTheme"
   >
     <svg

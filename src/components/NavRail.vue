@@ -20,10 +20,9 @@ function go(id: string) {
 </script>
 
 <template>
-  <!-- Desktop: verticale pil rechts, zoals op de oude site -->
   <nav
     class="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-1 rounded-full p-2 shadow-glow lg:flex card-surface"
-    aria-label="Hoofdnavigatie"
+    aria-label="Navigation"
   >
     <div class="mb-1 flex flex-col items-center gap-1">
       <div v-for="item in props.items" :key="item.id" class="group relative">
@@ -44,7 +43,6 @@ function go(id: string) {
           <NavIcon :icon="item.icon" class="h-5 w-5" />
         </button>
 
-        <!-- Tooltip -->
         <Transition
           enter-active-class="transition duration-150 ease-out"
           enter-from-class="opacity-0 translate-x-1"
@@ -71,7 +69,7 @@ function go(id: string) {
   <!-- Mobiel: onderbalk -->
   <nav
     class="fixed inset-x-3 bottom-3 z-40 flex items-center justify-between gap-1 rounded-2xl px-2 py-2 shadow-glow card-surface lg:hidden"
-    aria-label="Hoofdnavigatie"
+    aria-label="Navigation"
   >
     <button
       v-for="item in props.items"

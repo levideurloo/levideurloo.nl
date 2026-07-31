@@ -10,7 +10,7 @@ defineProps<{ skills: SkillLevel[] }>()
       <div class="mb-1.5 flex items-baseline justify-between text-sm">
         <span class="font-medium" style="color: var(--text-primary)">{{ skill.name }}</span>
         <span class="font-mono text-xs" style="color: var(--text-muted)">
-          {{ skill.percentage }}% · {{ skill.years }} jaar
+          {{ skill.percentage }}% · {{ skill.years }} yr
         </span>
       </div>
       <div class="h-1.5 overflow-hidden rounded-full" style="background: var(--surface-raised)">

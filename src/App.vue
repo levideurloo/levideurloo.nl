@@ -15,8 +15,8 @@ import type { NavItem } from '@/types'
 const navItems: NavItem[] = [
   { id: 'home', label: 'Voorpagina', icon: 'home' },
   { id: 'about', label: 'Over mij', icon: 'user' },
-  { id: 'portfolio', label: 'Mijn portfolio', icon: 'briefcase' },
   { id: 'experience', label: 'Ervaringen en opleidingen', icon: 'graduation' },
+  { id: 'portfolio', label: 'Mijn portfolio', icon: 'briefcase' },
   { id: 'contact', label: 'Contact opnemen', icon: 'mail' },
 ]
 
@@ -35,8 +35,8 @@ const { data } = usePortfolioData()
   <main id="main-content" class="relative">
     <HeroSection />
     <AboutSection />
-    <ProjectsSection />
     <ExperienceSection />
+    <ProjectsSection />
     <ContactSection />
   </main>
 
