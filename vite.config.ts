@@ -71,13 +71,20 @@ export default defineConfig(({mode}) => {
       },
       devOptions: {
         enabled: true, // laat de service worker ook in `npm run dev` draaien, handig om te testen
-      },
+      }
     })
     ]
   }
 
   return {
     plugins,
+    build:{
+      rolldownOptions:{
+        external: [
+            'virtual:pwa-register'
+        ]
+      }
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

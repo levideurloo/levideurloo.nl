@@ -7,8 +7,10 @@ const offlineReady = ref(false)
 let updateServiceWorker: (reloadPage?: boolean) => Promise<void> = async () => {}
 let initialised = false
 
+let isProd = import.meta.env.NODE_ENV === 'production';
+
 export function usePwaUpdate() {
-  if (!initialised) {
+  if (!initialised && isProd) {
     initialised = true
     updateServiceWorker = registerSW({
       immediate: true,
