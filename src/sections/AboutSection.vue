@@ -20,7 +20,7 @@ const { data } = usePortfolioData()
           v-html="data.profile.bioHtml"
         />
 
-        <div v-if="data?.funFacts">
+        <div>
           <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div
               v-for="fact in data.profile.facts"
@@ -34,7 +34,7 @@ const { data } = usePortfolioData()
           </dl>
 
           <div class="mt-8">
-            <FunFactsStrip :facts="data.funFacts" />
+            <FunFactsStrip :facts="data.funFacts" v-if="data?.funFacts" />
           </div>
         </div>
       </div>
