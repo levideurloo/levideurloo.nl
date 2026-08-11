@@ -42,7 +42,7 @@ export default defineConfig(({mode}) => {
       workbox: {
         // Precache the built app shell; any navigation while offline falls
         // back to the cached index.html since this is a single-page app.
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2,webp}'],
         navigateFallback: '/index.html',
         runtimeCaching: [
           {
@@ -54,11 +54,6 @@ export default defineConfig(({mode}) => {
             },
           },
           {
-            // De portfoliodata (profiel/projecten/ervaring). NetworkFirst:
-            // probeer altijd verse data, maar val terug op de laatst
-            // gecachte response zodra het endpoint offline of onbereikbaar
-            // is. Dekt zowel het huidige /index.json als het latere
-            // Laravel-endpoint, zolang het pad via VITE_API_PATH klopt.
             urlPattern: ({url}: { url: URL }) => url.pathname.endsWith(apiPath),
             handler: 'NetworkFirst',
             options: {
@@ -70,7 +65,7 @@ export default defineConfig(({mode}) => {
         ],
       },
       devOptions: {
-        enabled: true, // laat de service worker ook in `npm run dev` draaien, handig om te testen
+        enabled: true
       }
     })
     ]

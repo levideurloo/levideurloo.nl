@@ -207,10 +207,10 @@ function normalizeCertificates(experiencePage: RawCmsPage | undefined): Certific
   }))
 }
 
-function normalizeContactInfo(contactPage: RawCmsPage | undefined): ContactInfoItem[] {
+function  normalizeContactInfo(contactPage: RawCmsPage | undefined): ContactInfoItem[] {
   const section = findSection(contactPage, 'contact-info')
   const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return fallbackPortfolioData.contactInfo
+  if (items.length === 0) return [];
 
   return items.map((item, index) => ({
     id: `contact-${index}`,
