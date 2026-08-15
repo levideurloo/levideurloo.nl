@@ -7,7 +7,7 @@ on:
 
 env:
   VITE_APP_BASE_URL: "https://levideurloo.nl/"
-  VITE_API_PATH: "ndex.json"
+  VITE_API_PATH: "index.json"
   VITE_ASSET_BASE_URL: "https://levideurloo.nl/"
 
 jobs:
