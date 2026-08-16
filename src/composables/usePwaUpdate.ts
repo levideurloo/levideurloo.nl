@@ -1,5 +1,5 @@
+import { registerSW } from "virtual:pwa-register"
 import { ref } from 'vue'
-// import { registerSW } from 'virtual:pwa-register'
 
 const needRefresh = ref(false)
 const offlineReady = ref(false)
@@ -10,15 +10,15 @@ let initialised = false
 export function usePwaUpdate() {
   if (!initialised) {
     initialised = true
-    // updateServiceWorker = registerSW({
-    //   immediate: true,
-    //   onNeedRefresh() {
-    //     needRefresh.value = true
-    //   },
-    //   onOfflineReady() {
-    //     offlineReady.value = true
-    //   },
-    // })
+    updateServiceWorker = registerSW({
+      immediate: true,
+      onNeedRefresh() {
+        needRefresh.value = true
+      },
+      onOfflineReady() {
+        offlineReady.value = true
+      },
+    })
   }
 
   async function reload() {

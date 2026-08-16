@@ -1,7 +1,7 @@
 import { ref, watch, onMounted } from 'vue'
 import type { Theme } from '@/types'
 
-const STORAGE_KEY = 'ld-theme'
+const STORAGE_KEY = 'ld-theme-preference'
 const theme = ref<Theme>('dark')
 
 function applyTheme(value: Theme) {
@@ -13,15 +13,18 @@ export function useTheme() {
   onMounted(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
     theme.value = stored ?? (prefersDark ? 'dark' : 'light')
     applyTheme(theme.value)
 
     const media = window.matchMedia('(prefers-color-scheme: dark)')
+
     const onChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem(STORAGE_KEY)) {
         theme.value = e.matches ? 'dark' : 'light'
       }
     }
+
     media.addEventListener('change', onChange)
   })
 
@@ -38,5 +41,9 @@ export function useTheme() {
     theme.value = value
   }
 
-  return { theme, toggleTheme, setTheme }
+  return {
+    theme,
+    toggleTheme,
+    setTheme
+  }
 }
