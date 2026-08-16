@@ -8,8 +8,6 @@ import type {
   Profile,
   ServiceItem,
   Testimonial,
-  PricingTier,
-  FunFact,
   Project,
   ExperienceEntry,
   SkillLevel,
@@ -35,7 +33,7 @@ async function fetchWithTimeout(url: string): Promise<Response> {
       headers: { Accept: 'application/json' },
     })
     if (!response.ok) {
-      throw new PortfolioApiError(`Onverwachte statuscode ${response.status} van ${url}`)
+      throw new PortfolioApiError(`Onverwachte status ${response.status} van ${url}`)
     }
     return response
   } finally {
@@ -117,35 +115,6 @@ function normalizeTestimonials(aboutPage: RawCmsPage | undefined): Testimonial[]
   }))
 }
 
-function normalizePricing(aboutPage: RawCmsPage | undefined): PricingTier[] {
-  const section = findSection(aboutPage, 'pricing')
-  const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return [];
-
-  return items.map((item, index) => ({
-    id: `pricing-${index}`,
-    title: item.title ?? '',
-    subtitle: String(item.subTitle ?? ''),
-    caption: item.caption ?? '',
-    cta: item.cta ?? 'Meer info',
-    link: item.link ?? '#contact',
-    primary: Boolean(item.primary),
-  }))
-}
-
-function normalizeFunFacts(aboutPage: RawCmsPage | undefined): FunFact[] {
-  const section = findSection(aboutPage, 'counter')
-  const items = section?.items?.filter(isRawCmsItem) ?? []
-  if (items.length === 0) return [];
-
-  return items.map((item, index) => ({
-    id: `funfact-${index}`,
-    label: item.title ?? '',
-    value: String(item.subTitle ?? ''),
-    icon: item.icon ?? 'star',
-  }))
-}
-
 function normalizeProjects(portfolioPage: RawCmsPage | undefined): Project[] {
   const section = findSection(portfolioPage, 'portfolio')
   const items = section?.items?.filter(isRawCmsItem) ?? []
@@ -153,7 +122,7 @@ function normalizeProjects(portfolioPage: RawCmsPage | undefined): Project[] {
 
   return items.map((item, index) => ({
     id: String(item.id ?? index),
-    title: item.title ?? 'Naamloos project',
+    title: item.title ?? '-',
     description: item.description ?? item.caption ?? '',
     categories: item.types && item.types.length > 0 ? item.types : ['all'],
     image: resolveAssetUrl(item.image),
@@ -230,8 +199,6 @@ function normalize(raw: RawPortfolioResponse): PortfolioData {
     profile: normalizeProfile(aboutPage),
     services: normalizeServices(aboutPage),
     testimonials: normalizeTestimonials(aboutPage),
-    pricing: normalizePricing(aboutPage),
-    funFacts: normalizeFunFacts(aboutPage),
     projects: normalizeProjects(portfolioPage),
     experience: normalizeExperience(experiencePage),
     skills: normalizeSkills(experiencePage),

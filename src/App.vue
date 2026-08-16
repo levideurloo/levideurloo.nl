@@ -12,7 +12,7 @@ import { usePortfolioData } from '@/composables/usePortfolioData'
 import type { NavItem } from '@/types'
 import PwaUpdateToast from "@/components/PwaUpdateToast.vue";
 
-const isProd =import.meta.env.NODE_ENV === 'production';
+const isProd = import.meta.env.NODE_ENV === 'production';
 
 const navItems: NavItem[] = [
   { id: 'home', label: 'Voorpagina', icon: 'home' },

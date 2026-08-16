@@ -29,7 +29,7 @@ const initials = computed(() =>
         </p>
 
         <div class="mt-9 flex flex-wrap items-center gap-4">
-          <a href="#portfolio" class="btn btn-primary">Bekijk mijn portfolio</a>
+          <a href="/assets/CV_Levi_Deurloo_2026.pdf" class="btn btn-primary" target="_blank" download>Download mijn CV</a>
           <a href="#contact" class="btn btn-ghost">Neem contact op</a>
         </div>
       </div>
