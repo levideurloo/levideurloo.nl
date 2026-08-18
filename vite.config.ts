@@ -12,17 +12,15 @@ export default defineConfig(({mode}) => {
       vue(),
       //@ts-ignore
       VitePWA({
-        // Auto-refresh the service worker on new deploys instead of leaving
-        // visitors stuck on a stale cached build.
         registerType: 'autoUpdate',
-        injectRegister: false, // we register manually in main.ts to show an update toast
+        injectRegister: false,
         manifest: {
           id: '/',
           name: 'Levi Deurloo — Web app developer',
           short_name: 'Levi Deurloo',
           description: "Portfolio van Levi Deurloo, web app developer. Projecten in Vue, Laravel en API's.",
-          start_url: '/',
-          scope: '/',
+          start_url: 'https://levideurloo.nl/',
+          scope: 'https://levideurloo.nl/',
           display: 'standalone',
           orientation: 'portrait-primary',
           background_color: '#08090D',
