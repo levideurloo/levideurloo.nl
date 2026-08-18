@@ -32,7 +32,7 @@ const { data } = usePortfolioData()
 
   <AuroraBackground />
   <NavRail :items="navItems" :active-id="activeId" />
-  <PwaUpdateToast v-if="isProd"/>
+  <PwaUpdateToast/>
 
   <main id="main-content" class="relative">
     <HeroSection />

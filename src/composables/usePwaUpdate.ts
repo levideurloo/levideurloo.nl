@@ -12,6 +12,7 @@ export function usePwaUpdate() {
     initialised = true
     updateServiceWorker = registerSW({
       immediate: true,
+
       onNeedRefresh() {
         needRefresh.value = true
       },

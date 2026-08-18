@@ -36,10 +36,9 @@ export default defineConfig(({mode}) => {
             {src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable'},
           ],
         },
-        workbox: {
-          // Precache the built app shell; any navigation while offline falls
-          // back to the cached index.html since this is a single-page app.
+        workbox:{
           globPatterns: ['**/*.{js,css,html,svg,png,woff2,webp}'],
+
           navigateFallback: '/index.html',
           runtimeCaching: [
             {

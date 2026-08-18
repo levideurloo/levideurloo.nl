@@ -1,7 +1,7 @@
 import { ref, watch, onMounted } from 'vue'
 import type { Theme } from '@/types'
 
-const STORAGE_KEY = 'ld-theme-preference'
+const STORAGE_KEY = 'ld-theme'
 const theme = ref<Theme>('dark')
 
 function applyTheme(value: Theme) {
