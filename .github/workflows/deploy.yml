@@ -6,9 +6,9 @@ on:
       - master
 
 env:
-  VITE_APP_BASE_URL: "https://levideurloo.nl/"
+  VITE_APP_BASE_URL: "https://levideurloo.dev/"
   VITE_API_PATH: "index.json"
-  VITE_ASSET_BASE_URL: "https://levideurloo.nl/"
+  VITE_ASSET_BASE_URL: "https://levideurloo.dev/"
 
 jobs:
   deploy:
@@ -44,5 +44,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 7685
           source: "public_html/*"
-          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.nl"
+          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.dev"
           overwrite: true
