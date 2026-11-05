@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fa2d4991-9e77-47f1-bc36-d1a2c56fabb2" name="levideurloo.dev">
+        <fileTransfer accessType="SFTP" host="levideurloo.dev" port="7685" sshConfigId="2f83f25d-decd-4763-aa7e-3304d46aec11" sshConfig="u38612p247589@levideurloo.dev:7685 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

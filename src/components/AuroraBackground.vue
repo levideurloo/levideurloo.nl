@@ -8,7 +8,6 @@
     <div class="aurora-blob aurora-blob--violet" />
     <div class="aurora-blob aurora-blob--pink" />
 
-    <!-- Fijn dot-grid, subtiele knipoog naar het stippenpatroon van de oude site -->
     <svg class="absolute left-6 top-8 h-40 w-40 opacity-[0.18] dark:opacity-[0.25]" aria-hidden="true">
       <pattern id="dotgrid" width="14" height="14" patternUnits="userSpaceOnUse">
         <circle cx="1.5" cy="1.5" r="1.5" fill="var(--text-primary)" />
