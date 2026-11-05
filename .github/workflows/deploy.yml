@@ -13,7 +13,7 @@ env:
 jobs:
   deploy:
     name: 🚀 SSH Deployment
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Checkout
@@ -44,5 +44,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 7685
           source: "public_html/*"
-          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.dev"
+          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.dev/"
           overwrite: true
