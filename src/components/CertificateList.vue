@@ -2,22 +2,22 @@
 import type { Certificate } from '@/types'
 
 defineProps<{ certificates: Certificate[] }>()
-
 function hideOnError(event: Event) {
-  const target = event.target as HTMLImageElement
-  target.style.visibility = 'hidden'
+  (event.target as HTMLImageElement).style.display = 'none'
 }
 </script>
 
 <template>
   <div class="grid gap-4 sm:grid-cols-2">
-    <div v-for="cert in certificates" :key="cert.id" class="card-surface flex items-center gap-4 p-5">
+    <div v-for="cert in certificates" :key="cert.id" class="card-surface flex items-center gap-5 p-4">
       <img
         v-if="cert.logo"
         :src="cert.logo"
         :alt="cert.title"
-        class="h-10 w-10 shrink-0 rounded-lg object-contain"
-        style="background: var(--surface-raised)"
+        class="h-12 w-12 shrink-1 rounded-lg object-contain"
+        style="
+          filter: grayscale(100%) contrast(125%) brightness(95%);
+        "
         loading="lazy"
         @error="hideOnError"
       />

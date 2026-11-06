@@ -20,6 +20,9 @@ function handleSubmit() {
   }
   error.value = ''
   status.value = 'sent'
+  const subject = encodeURIComponent(`Bericht via portfolio van levideurloo.dev`)
+  const body = encodeURIComponent(`${message.value}\n\nNaam: ${name.value}\nE-mail: ${email.value}`)
+  window.location.href = `mailto:contact@levideurloo.dev?subject=${subject}&body=${body}`
 }
 </script>
 

@@ -14,14 +14,14 @@ import { resolveAssetUrl } from '@/utils/assets'
 export const fallbackProfile: Profile = {
   name: 'Levi Deurloo',
   title: 'Web app developer',
-  tagline: 'gedreven door precisie.',
+  tagline: 'gedreven door passie.',
   bioHtml:
     "'Ik ben een developer die van zijn hobby zijn werk heeft mogen maken — en dat zie je terug in hoe ik werk.'<br/><br/>Inmiddels heb ik meerdere jaren ervaring in het bouwen van webapplicaties en maatwerkoplossingen. Ik ben gespecialiseerd in het werken met Vue, Laravel en API's en vind het belangrijk dat techniek en gebruiksvriendelijkheid samenkomen.",
   facts: [
     { label: 'Leeftijd', value: '27 jaar' },
     { label: 'Geboorteland', value: 'Nederland' },
     { label: 'Woonplaats', value: 'Zeeland, Nederland' },
-    { label: 'E-mailadres', value: 'contact@levideurloo.nl' },
+    { label: 'E-mailadres', value: 'contact@levideurloo.dev' },
   ],
 }
 
@@ -136,7 +136,7 @@ export const fallbackExperience: ExperienceEntry[] = [
   {
     id: 'securancy',
     organisation: 'Securancy Intelligence',
-    role: 'Afstudeerstage',
+    role: 'Afstudeer stage',
     year: '2017',
     description:
       'Waardevolle platformen ontworpen, gebouwd en geoptimaliseerd die alledaagse problemen en situaties aanpakken.',
@@ -178,13 +178,13 @@ export const fallbackKnowledge: string[] = [
 ]
 
 export const fallbackCertificates: Certificate[] = [
-  { id: 'hz', title: 'HZ University of applied..', course: 'HBO-ICT', date: '2018 - 2021', logo: resolveAssetUrl('HZ.webp') },
-  { id: 'scalda', title: 'Scalda', course: 'Applicatie ontwikkelaar', date: '2015 - 2017', logo: resolveAssetUrl('scalda.webp') },
+  { id: 'hz', title: 'HZ University of applied..', course: 'HBO-ICT', date: '2018 - 2021', logo: resolveAssetUrl('./img/education/HZ.webp') },
+  { id: 'scalda', title: 'Scalda', course: 'Applicatie ontwikkelaar', date: '2015 - 2017', logo: resolveAssetUrl('./img/education/scalda.webp') },
 ]
 
 export const fallbackContactInfo: ContactInfoItem[] = [
   { id: 'location', text: 'Zeeland, NL', icon: 'map-marker' },
-  { id: 'email', text: 'contact@levideurloo.nl', icon: 'envelope' },
+  { id: 'email', text: 'contact@levideurloo.dev', icon: 'envelope' },
 ]
 
 export const fallbackPortfolioData: PortfolioData = {
