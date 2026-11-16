@@ -1,0 +1,48 @@
+name: 🚀 Deploy website
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  VITE_APP_BASE_URL: "https://levideurloo.dev/"
+  VITE_API_PATH: "index.json"
+  VITE_ASSET_BASE_URL: "https://levideurloo.dev/"
+
+jobs:
+  deploy:
+    name: 🚀 SSH Deployment
+    runs-on: ubuntu-26.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Prepare upload
+        run: |
+          mkdir -p public_html
+          cp -R dist/* public_html/
+
+      - name: Upload files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 7685
+          source: "public_html/*"
+          target: "/home/${{ secrets.SSH_USER }}/domains/levideurloo.dev/"
+          overwrite: true
